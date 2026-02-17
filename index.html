@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiya Bagaan | Kirtipur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1b3a1a;
+            --accent: #d4a373;
+            --white: #ffffff;
+            --dark: #121212;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { scroll-behavior: smooth; box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+        }
+
+        /* Hero Background */
+        .main-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=2070&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+
+        .about-nav {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; font-weight: 900; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; opacity: 0.9; }
+
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+
+        .order-btn { background: #25d366; color: white; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        .loc-btn { background: var(--accent); color: var(--dark); padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+
+        /* Impressive Dark About Section */
+        .about-box {
+            padding: 100px 5%;
+            background: linear-gradient(rgba(27, 58, 26, 0.9), rgba(18, 18, 18, 0.95)), 
+                        url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            text-align: center;
+        }
+
+        .founder-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .founder-photo {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 5px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .founder-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .founder-text h2 { color: var(--accent); margin-bottom: 20px; font-size: 2.2rem; border-left: 5px solid var(--accent); padding-left: 15px; }
+
+        /* Video Section */
+        .video-container { padding: 40px 5%; background: var(--dark); }
+        .video-box {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        /* Menu Section */
+        .menu-container { padding: 80px 5%; background: #0a140a; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .category-card { background: var(--glass); padding: 25px; border-radius: 15px; border-bottom: 4px solid var(--accent); }
+        .category-card h3 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px;}
+        .item { display: flex; justify-content: space-between; margin-bottom: 10px; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; background: #000; padding: 10px; }
+        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; }
+
+        footer { padding: 40px; text-align: center; background: #000; font-size: 0.9rem; color: #888; }
+
+        @media (max-width: 768px) {
+            .founder-text { text-align: center; }
+            .founder-text h2 { border-left: none; padding-left: 0; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-bg">
+    <header>
+        <div class="logo">Chiya Bagaan</div>
+        <a href="#about-section" class="about-nav">About Chiya Bagaan</a>
+    </header>
+
+    <section class="hero">
+        <h1>Chiya Bagaan, Kirtipur</h1>
+        <p>A place where tradition meets contemporary lifestyle.</p>
+        
+        <div class="btn-group">
+            <a href="https://wa.me/9779804650880?text=I%20want%20to%20order" class="order-btn">
+                <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+            <a href="https://maps.google.com/?q=Kirtipur" target="_blank" class="loc-btn">
+                <i class="fa-solid fa-location-dot"></i> Tap to view Location
+            </a>
+        </div>
+    </section>
+</div>
+
+<section id="about-section" class="about-box">
+    <div class="founder-container">
+        <img src="anshu-varma.jpg" alt="Anshu Varma" class="founder-photo">
+        
+        <div class="founder-text">
+            <h2>Chiya Bagan – Founded by Anshu Varma</h2>
+            <p>Chiya Bagan is a unique and welcoming tea concept founded by <strong>Anshu Varma</strong>, created with the vision of bringing people together through the rich culture of tea. Inspired by traditional tea gardens and modern café experiences, Chiya Bagan offers a relaxing environment where customers can enjoy quality tea, coffee, and snacks.</p>
+            <p>The idea behind Chiya Bagan is not just serving beverages but creating a peaceful space where conversations grow, creativity flows, and community connects. With carefully selected ingredients and a focus on authentic flavors, Chiya Bagan aims to provide a memorable experience for tea lovers.</p>
+            <p>Founded by Anshu Varma, the brand represents passion, innovation, and dedication to Nepali tea culture while combining modern hospitality. Chiya Bagan continues to grow as a place where tradition meets contemporary lifestyle.</p>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <div class="video-box">
+            <video width="100%" height="100%" controls>
+                <source src="Facebook 1979895496168194(480P_SD).mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+
+<section class="menu-container" id="menu">
+    <h2 style="text-align:center; color:var(--accent); margin-bottom:40px; font-size: 2.5rem;">Our Menu</h2>
+    <div class="menu-grid">
+        <div class="category-card">
+            <h3>☕ Tea (Chiya)</h3>
+            <div class="item">Dudh Chiya</div><div class="item">Masala Chiya</div>
+            <div class="item">Black / Lemon Tea</div><div class="item">Ginger / Tulsi Tea</div>
+            <div class="item">Green / Honey Lemon</div><div class="item">Butter Tea (Bhote)</div>
+        </div>
+        <div class="category-card">
+            <h3>☕ Coffee Bar</h3>
+            <div class="item">Cappuccino / Latte</div><div class="item">Espresso / Mocha</div>
+            <div class="item">Black / Milk Coffee</div><div class="item">Iced Coffee</div>
+        </div>
+        <div class="category-card">
+            <h3>🥟 Snacks</h3>
+            <div class="item">Momo (Veg/Chicken)</div><div class="item">Chowmein / French Fries</div>
+            <div class="item">Aloo Chop / Pakoda</div><div class="item">Sel Roti with Achar</div>
+        </div>
+        <div class="category-card">
+            <h3>🍞 Bakery</h3>
+            <div class="item">Sandwich (Veg/Chicken/Egg)</div><div class="item">Omelette Toast</div>
+        </div>
+    </div>
+</section>
+
+<div class="gallery-grid">
+    <img src="Screenshot_2026-02-17-13-34-30-786_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-33-52-574_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-29-51-438_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-26-38-493_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-44-25-010_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-40-54-110_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-39-31-181_com.zhiliaoapp.musically-edit.jpg">
+    <img src="Screenshot_2026-02-17-13-35-35-249_com.zhiliaoapp.musically-edit.jpg">
+</div>
+
+<footer>
+    <p><strong>Chiya Bagaan, Kirtipur</strong> | Phone: 9804650880</p>
+    <p style="margin-top:10px;">Design by <strong>NK Digital Services</strong></p>
+</footer>
+
+</body>
+</html>
